@@ -15,7 +15,7 @@ public class For_Loop {//
         System.out.println("Enter Number Last");
         int numberLast = scanner.nextInt();
         System.out.println("Below Printed 10 number as per requirement");
-        for (int i = numberFirst; i < numberLast; i++)
+        for (int i = numberFirst; i <= numberLast && i<=numberFirst+10; i++)
         //This for loop for print any 10 numbers between  given by user
         {
             System.out.println(i);
@@ -31,7 +31,7 @@ public class For_Loop {//
         int c = 1;
         Scanner scanner = new Scanner(System.in);
         System.out.println("");
-        System.out.println("*****************************Program -2*****************************");
+        System.out.println("*****************************Program -2*************************");
         System.out.println("Enter Number to find out fibonacci series");
         int Number = scanner.nextInt();
         System.out.println("Fibonacci Series" + " ");
@@ -173,12 +173,15 @@ public class For_Loop {//
         int sum = 0;
         for (int i = 1; i <= number; i++) //Print sum of between 1 to 20
         {
-
-            sum = sum + i;
-            System.out.println("Sum after adding " + " " + i + " " + "is" + " " + sum);
+            if (number > 20) {
+                System.out.println("Please enter range between 1 to 20");
+                break;
+            } else
+                sum = sum + i;
         }
         {
-            System.out.println("Sum of all number till" + " " + number + " " + "is :" + " " + sum);
+            System.out.println("Sum of " + " " + number +" " );
+            System.out.println(sum);
         }
     }
 
@@ -276,7 +279,8 @@ public class For_Loop {//
     //**************************  Program No 13   **********************
 
     //Find out min & maximum numbers from 3 user enters
-    public void find_Min_Maximum_Number() {
+    public void find_Min_Maximum_Number()
+    {
         Scanner scanner = new Scanner(System.in);
         System.out.println("");
         System.out.println("//**************************  Program No 13   *************************");
@@ -284,24 +288,34 @@ public class For_Loop {//
         System.out.println("Enter number 1");
         int number = scanner.nextInt();
         System.out.println("Enter number 2");
-        int minimum = scanner.nextInt();
+        int number1 = scanner.nextInt();
         System.out.println("Enter number 3");
-        int maximum = scanner.nextInt();
-        for (int i = 0; i <= number; i++)//This for loop for find out minimum and maximum number
-        {
-            if (number < minimum) {
-                minimum = number;
-            }
-            if (number > maximum) {
-                maximum = number;
-            }
+        int number2 = scanner.nextInt();
+        //for (int i = 0; i <= number; i++)//This for loop for find out minimum and maximum number
+        //Apply this condition for find out maximum number from 3 numbers
+            if (number >= number2 && number >= number1) {
 
+                System.out.println(number + " is the maximum number");
+            } else if (number1 >= number2 && number1 >= number) {
+                System.out.println(number1 +" "+ "is the maximum number");
+            } else
+                {
+                System.out.println(number2 +" "+ "is the maximum number ");
+            }
+            //Applying condition for find out minimum number from 3 number
 
+            if (number <= number1 && number <= number2) {
+                System.out.println(number +" "+ "is the mimimum number");
+            } else if (number1 <= number && number1 <= number2) {
+                System.out.println(number1 + " "+"is the minimum number");
+            } else {
+
+                System.out.println(number2 +" "+ "is the minimum number");
+            }
         }
-        System.out.println("Maximum Number is : " + " " + maximum);
-        System.out.println("Minimum Number is : " + " " + minimum);
 
-    }
+
+
 
     //**************************  Program No 14   **********************
     public static void find_Average_And_Sum_Of_Between_Two_Number() {
@@ -319,7 +333,7 @@ public class For_Loop {//
         for (int i = startingNumber; i <= endingNumber; i++)//This for loop find out sum and average number
         {
             sum = sum + i;
-            loopCount = endingNumber - startingNumber;//total number for division sum
+            loopCount = endingNumber - startingNumber + 1;//total number for division sum
             average = sum / loopCount;//Check the average
         }
         System.out.println("Sum is :" + " " + sum);
@@ -353,6 +367,9 @@ public class For_Loop {//
 
     public static void main(String[] args) {
         For_Loop for_loop = new For_Loop();//object create for instance method call to static method
+
+
+
 
 
         // Program N0 1
@@ -396,6 +413,7 @@ public class For_Loop {//
 
         //Program No 14
         find_Average_And_Sum_Of_Between_Two_Number();
+
 
         //Program No 15
         print_Triangular_Pattern();
